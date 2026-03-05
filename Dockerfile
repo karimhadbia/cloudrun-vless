@@ -1,11 +1,5 @@
-FROM node:18
+FROM teddysun/xray
 
-WORKDIR /app
+COPY config.json /etc/xray/config.json
 
-COPY . .
-
-RUN npm install
-
-EXPOSE 8080
-
-CMD ["npm","start"]
+CMD ["xray","-config","/etc/xray/config.json"]
